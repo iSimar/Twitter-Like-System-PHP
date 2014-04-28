@@ -3,4 +3,4 @@ Twitter-Like-System-PHP
 
 Twitter Clone using PHP
 
-<a href="http://simarsingh.ca/twitter-php">Click Here</a> to try out the demo.
+Try out the <a href="http://simarsingh.ca/twitter-php">Demo</a> for Twitter-Like-System-PHP 
