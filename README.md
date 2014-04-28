@@ -1,7 +1,7 @@
 Twitter-Like-System-PHP
 =======================
 
-A simple twitter clone demo using PHP with a MYSQL database.
+A simple twitter clone demo using PHP with a MySQL database.
 
 Try out the <a href="http://simarsingh.ca/twitter-php">Demo</a> for Twitter-Like-System-PHP 
 
@@ -13,8 +13,8 @@ Setup
 ```
 CREATE TABLE users(
     id int NOT NULL AUTO_INCREMENT,
-	  username varchar(15) NOT NULL,
-	  password varchar(32) NOT NULL,
+    username varchar(15) NOT NULL,
+    password varchar(32) NOT NULL,
     followers int DEFAULT 0,
     following int DEFAULT 0,
     tweets int DEFAULT 0,
@@ -23,16 +23,16 @@ CREATE TABLE users(
 
 CREATE TABLE following(
     id int NOT NULL AUTO_INCREMENT,
-	  user1_id int REFERENCES \`users\` (\`id\`) ON DELETE CASCADE ON UPDATE CASCADE,
-	  user2_id int REFERENCES \`users\` (\`id\`) ON DELETE CASCADE ON UPDATE CASCADE,
+    user1_id int REFERENCES \`users\` (\`id\`) ON DELETE CASCADE ON UPDATE CASCADE,
+    user2_id int REFERENCES \`users\` (\`id\`) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE tweets(
     id int NOT NULL AUTO_INCREMENT,
     username varchar(15) NOT NULL,
-	  user_id int REFERENCES \`users\` (\`id\`) ON DELETE CASCADE ON UPDATE CASCADE,
-	  tweet varchar(140) NOT NULL,
+    user_id int REFERENCES \`users\` (\`id\`) ON DELETE CASCADE ON UPDATE CASCADE,
+    tweet varchar(140) NOT NULL,
     timestamp bigint(20) NOT NULL,
     PRIMARY KEY (id)
 );
