@@ -5,7 +5,7 @@ $user_id = $_SESSION['user_id'];
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=340px, user-scalable=no">
+	<meta name="viewport" content="width=425px, user-scalable=no">
 
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
