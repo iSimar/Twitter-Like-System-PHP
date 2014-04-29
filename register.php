@@ -15,7 +15,7 @@ $user_id = $_SESSION['user_id'];
 
   <title>Twitter-like-system-PHP</title>
 </head>
-<body style="margin-left:20px;width:300px;">
+<body style="margin-left:20px;width:300px;zoom:125%;">
   <form action="register.php" method="POST" role="form" style="width:300px;">
     <h3>Twitter-Like-System-PHP</h3>
     <h4>Register For An Account</h4>
@@ -44,7 +44,7 @@ if($_POST['btn']=="submit-register-form"){
           echo "<div class='jumbotron' style='padding:3px;'>
                   <div class='container'>
                     <h5>Made by <a href='http://simarsingh.ca'>Simar</a></h5>  
-                    <h5>This is Open Source - Fork it on <i class='fa fa-github'></i> <a href='#'>GitHub</a></h5>
+                    <h5>This is Open Source - Fork it on <i class='fa fa-github'></i> <a href='https://github.com/iSimar/Twitter-Like-System-PHP'>GitHub</a></h5>
                   </div>
                 </div>";
           echo "</body>";
@@ -83,7 +83,7 @@ if($_POST['btn']=="submit-register-form"){
   <div class="jumbotron" style="padding:3px;">
     <div class="container">
       <h5>Made by <a href="http://simarsingh.ca">Simar</a></h5>  
-      <h5>This is Open Source - Fork it on <i class="fa fa-github"></i> <a href="#">GitHub</a></h5>
+      <h5>This is Open Source - Fork it on <i class="fa fa-github"></i> <a href="https://github.com/iSimar/Twitter-Like-System-PHP">GitHub</a></h5>
     </div>
   </div>
 </body>
