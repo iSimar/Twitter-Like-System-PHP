@@ -1,4 +1,16 @@
 <?php
+function getTime($t_time){
+	$pt = time() - $t_time;
+	if ($pt>=86400)
+		$p = date("F j, Y",$t_time);
+	elseif ($pt>=3600)
+		$p = (floor($pt/3600))."h";
+	elseif ($pt>=60)
+		$p = (floor($pt/60))."m";
+	else 
+		$p = $pt."s";
+	return $p;
+}
 	if($user_id){
 		include "connect.php";
 		$query = mysql_query("SELECT username, followers, following, tweets
@@ -29,30 +41,37 @@
 			<button type='submit' style='float:right;margin-top:3px;' class='btn btn-info btn-xs'>Tweet</button>
 		</form>
 		<br>
-		<hr>
+		<br>
 		";
 		include "connect.php";
-		$following_query = mysql_query("SELECT user2_id
-                              			FROM following 
-                              			WHERE user1_id='$user_id'
-                             			");
-		$tweets = mysql_query("SELECT user_id, tweet
+		$tweets = mysql_query("SELECT username, tweet, timestamp
 							   FROM tweets
-							   WHERE user_id = $user_id
-							   ORDER BY timestamp
-							   DESC LIMIT 5, 10
+							   WHERE user_id = $user_id OR (user_id IN (SELECT user2_id FROM following WHERE user1_id='$user_id'))
+							   ORDER BY timestamp DESC
+							   LIMIT 0, 10
 							  ");
-		if($tweets === FALSE) {
-   			die(mysql_error()); // TODO: better error handling
-		}
 		while($tweet = mysql_fetch_array($tweets)){
-			echo $tweet['tweet']."<br>";
+			echo "<div class='well well-sm' style='padding-top:4px;padding-bottom:8px; margin-bottom:8px; overflow:hidden;'>";
+			echo "<div style='font-size:10px;float:right;'>".getTime($tweet['timestamp'])."</div>";
+			echo "<table>";
+			echo "<tr>";
+			echo "<td valign=top style='padding-top:4px;'>";
+			echo "<img src='./default.jpg' style='width:35px;'alt='display picture'/>";
+			echo "</td>";;
+			echo "<td style='padding-left:5px;word-wrap: break-word;' valign=top>";
+			echo "<a style='font-size:12px;' href='./".$tweet['username']."'>@".$tweet['username']."</a>";
+			echo "<div style='font-size:10px; margin-top:-3px;'>".$tweet['tweet']."</div>";
+			echo "</td>";
+			echo "</tr>";
+			echo "</table>";
+			echo "</div>";
 		}
+		mysql_close($conn);
 	}
 ?>
 <div class="jumbotron" style="padding:3px;">
 	<div class="container">
 		<h5>Made by <a href="http://simarsingh.ca">Simar</a></h5>  
-		<h5>This is Open Source - Fork it on <i class="fa fa-github"></i> <a href="#">GitHub</a></h5>
+		<h5>This is Open Source - Fork it on <i class="fa fa-github"></i> <a href="https://github.com/iSimar/Twitter-Like-System-PHP">GitHub</a></h5>
 	</div>
 </div>
