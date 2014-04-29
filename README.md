@@ -1,7 +1,7 @@
 Twitter-Like-System-PHP
 =======================
 
-A simple twitter clone demo using PHP with a MySQL database.
+A simple twitter clone using PHP with a MySQL database.
 
 <b>Try out the <a href="http://simarsingh.ca/twitter-php">Demo</a> for Twitter-Like-System-PHP</b>
 
