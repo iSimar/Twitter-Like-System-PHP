@@ -60,7 +60,9 @@ function getTime($t_time){
 			echo "</td>";;
 			echo "<td style='padding-left:5px;word-wrap: break-word;' valign=top>";
 			echo "<a style='font-size:12px;' href='./".$tweet['username']."'>@".$tweet['username']."</a>";
-			echo "<div style='font-size:10px; margin-top:-3px;'>".$tweet['tweet']."</div>";
+			$new_tweet = preg_replace('/@(\\w+)/','<a href=./$1>$0</a>',$tweet['tweet']);
+			$new_tweet = preg_replace('/#(\\w+)/','<a href=./hashtag/$1>$0</a>',$new_tweet);
+			echo "<div style='font-size:10px; margin-top:-3px;'>".$new_tweet."</div>";
 			echo "</td>";
 			echo "</tr>";
 			echo "</table>";
