@@ -5,7 +5,7 @@ A simple twitter clone demo using PHP with a MySQL database.
 
 Try out the <a href="http://simarsingh.ca/twitter-php">Demo</a> for Twitter-Like-System-PHP 
 
-<img src="http://i62.tinypic.com/152hn2p.png"/>
+<img src="http://i62.tinypic.com/2lu8gsl.png"/>
 
 
 Setup 
