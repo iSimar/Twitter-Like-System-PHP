@@ -23,8 +23,8 @@ CREATE TABLE users(
 
 CREATE TABLE following(
     id int NOT NULL AUTO_INCREMENT,
-    user1_id int REFERENCES \`users\` (\`id\`) ON DELETE CASCADE ON UPDATE CASCADE,
-    user2_id int REFERENCES \`users\` (\`id\`) ON DELETE CASCADE ON UPDATE CASCADE,
+    user1_id int REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    user2_id int REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (id)
 );
 
