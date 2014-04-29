@@ -1,4 +1,5 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^hashtag/([A-Za-z0-9_]+)$ hashtag.php?hashtag=$1
 RewriteRule ^([A-Za-z0-9_]+)$ profile.php?username=$1
