@@ -14,10 +14,22 @@ $user_id = $_SESSION['user_id'];
 
 	<title>Twitter-like-system-PHP</title>
 </head>
-<body style="margin-left:20px;width:300px;">
+<body style="margin-left:20px;width:300px;zoom:125%;">
 	<h3>Twitter-Like-System-PHP</h3>
 	<a href='.'>Go Home</a>
 	<?php
+	function getTime($t_time){
+		$pt = time() - $t_time;
+		if ($pt>=86400)
+			$p = date("F j, Y",$t_time);
+		elseif ($pt>=3600)
+			$p = (floor($pt/3600))."h";
+		elseif ($pt>=60)
+			$p = (floor($pt/60))."m";
+		else 
+			$p = $pt."s";
+		return $p;
+	}
 	if($_GET['username']){
 		include 'connect.php';
 		$username = strtolower($_GET['username']);
@@ -50,10 +62,10 @@ $user_id = $_SESSION['user_id'];
 				}
 			}
 			else{
-				echo "<a class='btn btn-info btn-xs' style='float:right;'>Signup</a>";
+				echo "<a href='./register.php' class='btn btn-info btn-xs' style='float:right;'>Signup</a>";
 			}
 			echo "
-			<table>
+			<table style='margin-bottom:5px;'>
 				<tr>
 					<td>
 						<img src='./default.jpg' style='width:35px;'alt='display picture'/>
@@ -75,6 +87,30 @@ $user_id = $_SESSION['user_id'];
 				</tr>
 			</table>
 			";
+			include "connect.php";
+			$tweets = mysql_query("SELECT username, tweet, timestamp
+				FROM tweets
+				WHERE user_id = $id
+				ORDER BY timestamp DESC
+				LIMIT 0, 10
+				");
+			while($tweet = mysql_fetch_array($tweets)){
+				echo "<div class='well well-sm' style='padding-top:4px;padding-bottom:8px; margin-bottom:8px; overflow:hidden;'>";
+				echo "<div style='font-size:10px;float:right;'>".getTime($tweet['timestamp'])."</div>";
+				echo "<table>";
+				echo "<tr>";
+				echo "<td valign=top style='padding-top:4px;'>";
+				echo "<img src='./default.jpg' style='width:35px;'alt='display picture'/>";
+				echo "</td>";;
+				echo "<td style='padding-left:5px;word-wrap: break-word;' valign=top>";
+				echo "<a style='font-size:12px;' href='./".$tweet['username']."'>@".$tweet['username']."</a>";
+				echo "<div style='font-size:10px; margin-top:-3px;'>".$tweet['tweet']."</div>";
+				echo "</td>";
+				echo "</tr>";
+				echo "</table>";
+				echo "</div>";
+			}
+			mysql_close($conn);
 		}
 		else{
 			echo "<div class='alert alert-danger'>Sorry, this profile doesn't exist.</div>";
@@ -86,7 +122,7 @@ $user_id = $_SESSION['user_id'];
 	<div class="jumbotron" style="padding:3px;">
 		<div class="container">
 			<h5>Made by <a href="http://simarsingh.ca">Simar</a></h5>  
-			<h5>This is Open Source - Fork it on <i class="fa fa-github"></i> <a href="#">GitHub</a></h5>
+			<h5>This is Open Source - Fork it on <i class="fa fa-github"></i> <a href="https://github.com/iSimar/Twitter-Like-System-PHP">GitHub</a></h5>
 		</div>
 	</div>
 </body>
