@@ -45,7 +45,7 @@ if($_POST['login-btn']=="login-submit"){
 
   <title>Twitter-like-system-PHP</title>
 </head>
-<body style="margin-left:20px;width:300px;">
+<body style="margin-left:20px;width:300px;zoom:125%;">
   <h3>Twitter-Like-System-PHP</h3>
   <?php
   if($user_id){
@@ -73,7 +73,7 @@ if($_POST['login-btn']=="login-submit"){
   <div class="jumbotron" style="padding:3px;">
     <div class="container">
       <h5>Made by <a href="http://simarsingh.ca">Simar</a></h5>  
-      <h5>This is Open Source - Fork it on <i class="fa fa-github"></i> <a href="#">GitHub</a></h5>
+      <h5>This is Open Source - Fork it on <i class="fa fa-github"></i> <a href="https://github.com/iSimar/Twitter-Like-System-PHP">GitHub</a></h5>
     </div>
   </div>
 </body>
