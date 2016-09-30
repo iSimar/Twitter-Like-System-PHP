@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 $user_id = $_SESSION['user_id'];
 ?>
@@ -8,7 +8,7 @@ if($_POST['login-btn']=="login-submit"){
     $username = strtolower($_POST['username']);
     include "connect.php";
     $query = mysql_query("SELECT id, password
-                          FROM users 
+                          FROM users
                           WHERE username='$username'
                           ");
     mysql_close($conn);
@@ -72,7 +72,7 @@ if($_POST['login-btn']=="login-submit"){
   <br>
   <div class="jumbotron" style="padding:3px;">
     <div class="container">
-      <h5>Made by <a href="http://simarsingh.com">Simar</a></h5>  
+      <h5>Made by <a href="http://simarsingh.com">Simar</a></h5>
       <h5>This is Open Source - Fork it on <i class="fa fa-github"></i> <a href="https://github.com/iSimar/Twitter-Like-System-PHP">GitHub</a></h5>
     </div>
   </div>

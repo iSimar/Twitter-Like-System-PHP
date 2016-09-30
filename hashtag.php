@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 $user_id = $_SESSION['user_id'];
 ?>
@@ -26,7 +26,7 @@ function getTime($t_time){
 		$p = (floor($pt/3600))."h";
 	elseif ($pt>=60)
 		$p = (floor($pt/60))."m";
-	else 
+	else
 		$p = $pt."s";
 	return $p;
 }
@@ -76,7 +76,7 @@ else{
 <br>
 <div class="jumbotron" style="padding:3px;">
 	<div class="container">
-		<h5>Made by <a href="http://simarsingh.ca">Simar</a></h5>  
+		<h5>Made by <a href="http://simarsingh.com">Simar</a></h5>
 		<h5>This is Open Source - Fork it on <i class="fa fa-github"></i> <a href="https://github.com/iSimar/Twitter-Like-System-PHP">GitHub</a></h5>
 	</div>
 </div>

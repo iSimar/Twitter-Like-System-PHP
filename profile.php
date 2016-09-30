@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 $user_id = $_SESSION['user_id'];
 ?>
@@ -26,15 +26,15 @@ $user_id = $_SESSION['user_id'];
 			$p = (floor($pt/3600))."h";
 		elseif ($pt>=60)
 			$p = (floor($pt/60))."m";
-		else 
+		else
 			$p = $pt."s";
 		return $p;
 	}
 	if($_GET['username']){
 		include 'connect.php';
 		$username = strtolower($_GET['username']);
-		$query = mysql_query("SELECT id, username, followers, following, tweets 
-			FROM users 
+		$query = mysql_query("SELECT id, username, followers, following, tweets
+			FROM users
 			WHERE username='$username'
 			");
 		mysql_close($conn);
@@ -49,7 +49,7 @@ $user_id = $_SESSION['user_id'];
 				if($user_id!=$id){
 					include 'connect.php';
 					$query2 = mysql_query("SELECT id
-										   FROM following 
+										   FROM following
 										   WHERE user1_id='$user_id' AND user2_id='$id'
 										  ");
 					mysql_close($conn);
@@ -74,7 +74,7 @@ $user_id = $_SESSION['user_id'];
 						<h6><a href='./$username'>@$username</a>";
 			include 'connect.php';
 			$query3 = mysql_query("SELECT id
-								   FROM following 
+								   FROM following
 								   WHERE user1_id='$id' AND user2_id='$user_id'
 								  ");
 			mysql_close($conn);
@@ -123,7 +123,7 @@ $user_id = $_SESSION['user_id'];
 	<br>
 	<div class="jumbotron" style="padding:3px;">
 		<div class="container">
-			<h5>Made by <a href="http://simarsingh.ca">Simar</a></h5>  
+			<h5>Made by <a href="http://simarsingh.com">Simar</a></h5>
 			<h5>This is Open Source - Fork it on <i class="fa fa-github"></i> <a href="https://github.com/iSimar/Twitter-Like-System-PHP">GitHub</a></h5>
 		</div>
 	</div>
